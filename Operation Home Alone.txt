@@ -1,0 +1,25 @@
+//Arbitrary pin numbers, must change later
+#define switchPin 2
+#define alarmPin 4
+
+boolean switchState;
+
+void setup(){
+    pinMode(switchPin, INPUT);
+    pinMode(alarmPin, OUTPUT);
+    
+    digitalWrite(switchPin, HIGH); //Enable pullup resistor
+}
+
+void loop(){
+    switchState = digitalRead(switchPin);
+    
+    if(!switchState) {
+        delay(50);
+        
+        if(!digitalRead(switchPin)) {
+            tone(alarmPin, 440);
+        }
+    }
+    noTone();
+}
