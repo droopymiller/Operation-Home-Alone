@@ -16,10 +16,9 @@ boolean tripped = false;
 boolean switchState;
 
 void setup(){
-    pinMode(switchPin, INPUT);
+    pinMode(switchPin, INPUT_PULLUP);
     pinMode(speakerPin, OUTPUT);
     
-    digitalWrite(switchPin, HIGH); //Enable pullup resistor
 }
 
 void loop(){
